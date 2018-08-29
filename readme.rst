@@ -1,70 +1,65 @@
-###################
-What is CodeIgniter
-###################
+# CRUD em codeigniter com jquery e upload de video 
 
-CodeIgniter is an Application Development Framework - a toolkit - for people
-who build web sites using PHP. Its goal is to enable you to develop projects
-much faster than you could if you were writing code from scratch, by providing
-a rich set of libraries for commonly needed tasks, as well as a simple
-interface and logical structure to access these libraries. CodeIgniter lets
-you creatively focus on your project by minimizing the amount of code needed
-for a given task.
+Desenvolvimento de um pequeno projeto de sistema para upload de videos, com cadastro de autores,categorias. Desenvolvimento com codeigniter utilizando o banco de dados em MySQL.
+**NOTA:** É muito bem vindo melhorias e bugs encontrados. :)
 
-*******************
-Release Information
-*******************
+### Telas
 
-This repo contains in-development code for future releases. To download the
-latest stable release please visit the `CodeIgniter Downloads
-<https://codeigniter.com/download>`_ page.
+![Telas](https://media.giphy.com/media/pGjobs37RDoYXKG0gB/giphy.gif)
 
-**************************
-Changelog and New Features
-**************************
+### Estrutura de pastas
 
-You can find a list of all changes for each release in the `user
-guide change log <https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/changelog.rst>`_.
+Breve explicação sobre os principais pontos de organização do projeto.
 
-*******************
-Server Requirements
-*******************
+```
+application/                    
+  config/
+  controllers/               
+    dashboard/               
+      Categorias.php                  --- Controller responsavel por cadastrar,alterar,excluir e editar as categorias.
+      Usuarios.php                    --- Controller responsavel por cadastrar,alterar,excluir e editar os usuarios.
+      Videos.php                      --- Controller responsavel por cadastrar,alterar,excluir e editar os videos inseridos.
+      Home.php     	              --- Controller default que redireciona paga o index do back-end e responsavel por todos os métodos de login.
+   models/
+     M_categorias.php                 --- Model responsavel por realizar as consultar/inserções/remoção das categorias.
+     M_index.php 		      --- Model responsavel por realizar as consultar de número de linhas da tabela para o index.
+     M_login.php        	      --- Model responsavel por autenticação do login de acesso.
+     M_usuarios.php                   --- Model responsavel por realizar as consultar/inserções/remoção das dos usuarios e trocar a senha.
+     M_videos.php        	      --- Model responsavel por realizar as consultar/inserções/remoção dos videos.
+   views/
+     back-end/
+       includes/
+         footer.php 		      --- Parte inferior contendo codigos html e scripts do template. 
+	 header.php 		      --- Parte superior contendo codigos html e folhas de estilo do template.
+	 menu-top.php 	              --- Barra superior com menu dropdown
+	 menu.php 		      --- Menu lateral
+       modais/	
+         categorias/
+       	   editar_categorias.php      --- Formulario de edição de categoria
+           excluir_categorias.php     --- Confirmação de exclusão e codigo JS enviando via URL o id.
+           modal_categorias.php	      --- Formulario para cadastro de categoria
+         usuarios/
+           modal_cadastrar.php	      --- Formulario de cadastro de usuario
+           modal_editar.php           --- Formulario de edição de usuario
+           modal_excluir.php          --- Confirmação de exclusão e codigo JS enviando via URL o id.
+         videos/
+           excluir_videos.php         --- Confirmação de exclusão e codigo JS enviando via URL o id.
+           visualizar_videos.php      --- Visualização do video selecionado
+         modal_novasenha.php          --- Formulario para edição de senha cadastrada e codigo JS para validação
+assets/
+  back/
+    dist/
+      css/
+        proprio.css		      --- Folha de estilo com configurações do layout back-end
+	site.min.css		      --- Folha de estilo default do template BOOTFLAT-ADMIN
+      js/
+	proprio.js		      --- Funcionalidades em jquery
+  front/			      --- Arquivos do front-end
+upload/			              --- Pasta responsavel para armazenar os videos inseridos
 
-PHP version 5.6 or newer is recommended.
+```
 
-It should work on 5.3.7 as well, but we strongly advise you NOT to run
-such old versions of PHP, because of potential security and performance
-issues, as well as missing features.
+### NOTA
 
-************
-Installation
-************
+Projeto em desenvolvimento.
 
-Please see the `installation section <https://codeigniter.com/user_guide/installation/index.html>`_
-of the CodeIgniter User Guide.
-
-*******
-License
-*******
-
-Please see the `license
-agreement <https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/license.rst>`_.
-
-*********
-Resources
-*********
-
--  `User Guide <https://codeigniter.com/docs>`_
--  `Language File Translations <https://github.com/bcit-ci/codeigniter3-translations>`_
--  `Community Forums <http://forum.codeigniter.com/>`_
--  `Community Wiki <https://github.com/bcit-ci/CodeIgniter/wiki>`_
--  `Community Slack Channel <https://codeigniterchat.slack.com>`_
-
-Report security issues to our `Security Panel <mailto:security@codeigniter.com>`_
-or via our `page on HackerOne <https://hackerone.com/codeigniter>`_, thank you.
-
-***************
-Acknowledgement
-***************
-
-The CodeIgniter team would like to thank EllisLab, all the
-contributors to the CodeIgniter project and you, the CodeIgniter user.
